@@ -1,13 +1,16 @@
-apply plugin: 'com.android.application'
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
 
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
+repositories {
+    maven { url "https://maven.google.com" }
+}
 
 android {
     compileSdkVersion 26
+    buildToolsVersion "26.0.3"
     defaultConfig {
-        applicationId "journaler.com.journaler"
+        applicationId "com.journaler"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
@@ -20,13 +23,72 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main.java.srcDirs += [
+                'src/main/kotlin',
+                'src/common/kotlin',
+                'src/debug/kotlin',
+                'src/release/kotlin',
+                'src/staging/kotlin',
+                'src/preproduction/kotlin',
+                'src/debug/java',
+                'src/release/java',
+                'src/staging/java',
+                'src/preproduction/java',
+                'src/androidTest/java',
+                'src/androidTest/kotlin'
+        ]
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix ".dev"
+        }
+        staging {
+            debuggable true
+            applicationIdSuffix ".sta"
+        }
+        preproduction {
+            applicationIdSuffix ".pre"
+        }
+        release {}
+    }
+    flavorDimensions "tier"
+    productFlavors {
+        demo {
+            dimension "tier"
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+        }
+        complete {
+            dimension "tier"
+            applicationIdSuffix ".complete"
+            versionNameSuffix "-complete"
+        }
+        special {
+            dimension "tier"
+            applicationIdSuffix ".special"
+            versionNameSuffix "-special"
+        }
+    }
+}
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "org.jetbrains.kotlin:kotlin-reflect:1.2.10"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.2.10"
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.github.salomonbrys.kotson:kotson:2.3.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
 }
