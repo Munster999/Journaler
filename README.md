@@ -19,5 +19,5 @@
 14) Create the new 'Main' application class in /main/java/journaler/activity/'**MainActivity.kt**' class file 
 15) Create a new 'empty' activity at the 'main' level (This should create your '**activity_main.xml**' in the res folder) )
 16) Amend '**activity_main.xml**' to use a LinearLayout
-17) 
+
 

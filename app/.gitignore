@@ -64,6 +64,8 @@ build/*
 !libs/*.jar
 !Releases/*.jar
 
+/main/assets/fonts/*
+
 credentials*.gradle
 gen
 
