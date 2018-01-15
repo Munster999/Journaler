@@ -80,15 +80,17 @@ repositories {
 
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile "org.jetbrains.kotlin:kotlin-reflect:1.2.10"
-    compile "org.jetbrains.kotlin:kotlin-stdlib:1.2.10"
-    compile 'com.android.support:design:26.1.0'
-    compile 'com.android.support:appcompat-v7:26.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.2.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.2.10"
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
 
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.github.salomonbrys.kotson:kotson:2.3.0'
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
-    compile 'com.squareup.okhttp3:okhttp:3.9.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.github.salomonbrys.kotson:kotson:2.3.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
 }
