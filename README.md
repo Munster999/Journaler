@@ -19,14 +19,39 @@
 14) Create the new 'Main' application class in /main/java/journaler/activity/'**MainActivity.kt**' class file 
 15) Create a new 'empty' activity at the 'main' level (This should create your '**activity_main.xml**' in the res folder) )
 16) Amend '**activity_main.xml**' to use a LinearLayout
-17) 'Journaler.kt' - defining our own log messages
+17) '**Journaler.kt**' - defining our own log messages
 18) Checking the 'run' window for created log messages
 19) Using the gradle build tool and its commands (clean, assemble, assembleDebug, assembleCompletedDebug)
 20) Debug your application - following breakpoints - Attaching the debugger
-=============== Chapter 3 ====================
+
+'***Chapter 3***' 
 1) Download and install the 'Pencil' app (for GUI layouts & screens)
 2) Add in 'implementation 'com.android.support:appcompat-v7:26.1.0'
-3) 
-
+3) Moving the tag field from 'MainActivity' to 'BaseActivity'
+4) Amend 'MainActivity' by removing all the 'log' functions and place them into 'BaseActivity.kt'
+5) Create '**Item**, **Note** and **Todo** Activity' class files and place them into the 'activity' folder
+6) 'Item' extends our 'Base' class, 'Todo' & 'Note' extend the 'ItemActivity' class
+7) Create '**activity_note.xml**' & '**activity_todo.xml**' in the activities folder
+8) Update 'note', 'item' & 'todo' classes
+9) Register our screens (activities) in 'view groups' within the '**manifest.xml**'
+10) Create and update a new '**dimens.xml**' file in the values folder
+11) Create '**activity_header.xml**' layout file that will be included on all screens
+12) Add 2 'buttons' and a 'textView' to the '**activity_header.xml**'
+13) Add in a 'ListView' and a 'FloatingActionButton' in the '**activity_main.xml**'
+14) Update 'Base',''Main' & 'Item' Activity with override functions to get the activity titles (RUN)
+15) Update 'activity_note.xml' file with a ScrollView and 2 editTextViews
+16) Update '**strings.xml**'
+17) Update '**activity_todo.xml**' with a 'ScrollView' and other UI components
+18) Create a new package 'fragment' & 'BaseFragment' class inside it
+19) Create a new '**fragment_items.xml**' and update accordingly  
+20) Adding in our fragment container details
+21) Create '**fragment_manual.xml**'(layout) and populate
+22) Create '**ManualFragment.kt**' class and populate accordingly
+23) Adding in 'fragment back stack' by updating the onCreate() method within '**MainActivity.kt**'(RUN)
+24) Replace the 'FrameLayout' with the 'ViewPager' view within '**MAinActivity.kt**' class (RUN)
+25) 
+'***Chapter 4***'
+ 
+ 
 
 

@@ -4,10 +4,11 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 
+
 class Journaler: Application() {
 
     companion object {
-        val tag = "Journaler"
+        val tag = "JOURNALER"
         var ctx: Context? = null
     }
 

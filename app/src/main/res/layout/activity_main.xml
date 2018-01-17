@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.journaler.activity.MainActivity">
+    android:orientation="vertical">
 
+    <include layout="@layout/activity_header" />
+    <!-- The above includes the 'header activity layout' (i.e. activity_header.xml) in this layout-->
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--
+    'FrameLayout' is our 'Fragment container'. Removed to be replaced by ViewPager view
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--NOTE: 'ListView' will present all the items-->
+        <ListView
+            android:id="@+id/items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/new_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/button_margin"/>
+        <!--NOTE: Same button used in Gmail-->
+    </RelativeLayout>
 </LinearLayout>
