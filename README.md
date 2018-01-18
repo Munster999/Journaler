@@ -49,9 +49,47 @@
 22) Create '**ManualFragment.kt**' class and populate accordingly
 23) Adding in 'fragment back stack' by updating the onCreate() method within '**MainActivity.kt**'(RUN)
 24) Replace the 'FrameLayout' with the 'ViewPager' view within '**MAinActivity.kt**' class (RUN)
-25) 
-'***Chapter 4***'
- 
+
+
+   '***Chapter 4***'
+1) ====== Creating and application bar ==============================
+2) ====== Using drawer navigation ===================================
+3) ====== Android Intents ===========================================
+4) ====== Passing Information between activities and fragments ======
+- Creating an application bar requires replacing the 'FragmentActivity' with 'AppCompatActivity'
+- Update a new theme in the '**AndroidManifest.xml**' file with "Theme.AppCompat.Light.NoActionBar"
+- Update '**activity_main.xml**' to add in an action 'toolbar' 
+- '**activity_main**' - Remove the 'header' and add a 'toolbar' widget on ALL layouts
+- '**BaseActivity**' - Update to use the new toolbar
+- Create a 'layout\menu\main.xml' file populate accordingly
+- '**BaseActivity**' - need to add a menu to the app bar. 
+- NOTE: Here we switched our header to the application bar
+- '**activity_main**' - Add in the 'DrawerLayout' view into our layout
+- '**adapter_navigation_drawer**' - We now have an empty navigation drawer and we 
+have to populate it with some buttons. Create a new layout for each navigation item 
+- Create '**\navigation\NavigationDrawerItem.kt**' data class. Populate it accordingly
+- '**MainActivity**' - assigning the above adapter here. We hav instantiated several 'NavigationDrawerItemInstances'
+instances. Assigned titles to the buttons, and instigated runnable actions that will execute. 
+Each runnable wil l jump to a specific page of our viewPager. We passed all instances to the adapter
+as one single mutable list.
+- Next we start to connect the activities (Todo & Notes) so when our user clicks on the button
+the proper screen will open.
+- Create "**\model\MODE.kt** enum class" and populate its code
+- Update '**ItemActivity**' 
+- Update '**ItemsFragment**' - Here we trigger the activity to open. Now, you click on the 
+FAB button and it opens a popup menu which sends you to either the 'Todo' or 'Notes' screen
+'**itemsFragment**' - passing information between activities and fragments
+'**itemActivity**' - Update as per book 
+'**TodoActivity**' - associated values to 'date/time' picker buttons 
+**SUMMARY**
+- We have now connected our interface and established a real application flow.
+- Established connections between screens by setting proper actions to UI elements
+- The data is now going from point to point 
+
+
+   '***Chapter 5***'
+
+
  
 
 

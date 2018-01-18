@@ -9,7 +9,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/activity_header" /> <!--Includes activity header layout-->
+        <!--<include layout="@layout/activity_header" /> Includes activity header layout-->
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"/><!-- Used to place in an action toolbar-->
 
         <EditText
             android:id="@+id/todo_title"
@@ -18,35 +25,35 @@
             android:hint="@string/title"
             android:padding="@dimen/form_padding"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1">
-
-        <Button
-            android:id="@+id/pick_date"
-            android:text="@string/pick_a_date"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:orientation="horizontal"
+            android:weightSum="1">
 
-        <Button
-            android:id="@+id/pick_time"
-            android:text="@string/pick_time"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            <Button
+                android:id="@+id/pick_date"
+                android:text="@string/pick_a_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"/>
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/pick_time"
+                android:text="@string/pick_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"/>
 
-    <EditText
-        android:id="@+id/todo_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top"
-        android:hint="@string/your_note_content_goes_here"
-        android:padding="@dimen/form_padding"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/todo_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:hint="@string/your_note_content_goes_here"
+            android:padding="@dimen/form_padding"/>
     </LinearLayout>
 </ScrollView>
 

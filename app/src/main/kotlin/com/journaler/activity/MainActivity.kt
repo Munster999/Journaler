@@ -5,8 +5,13 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.view.GravityCompat
+import android.util.Log
+import android.view.MenuItem
 import com.journaler.R
 import com.journaler.fragment.ItemsFragment
+import com.journaler.navigation.NavigationDrawerAdapter
+import com.journaler.navigation.NavigationDrawerItem
 import kotlinx.android.synthetic.main.activity_header.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,7 +25,40 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pager.adapter = ViewPagerAdapter(supportFragmentManager)
+
+        val menuItems = mutableListOf<NavigationDrawerItem>()
+        // Instantiating 'NavigationDrawerItem' instances below
+        val today = NavigationDrawerItem(
+                getString(R.string.today), // assigning a title to the button
+                Runnable { pager.setCurrentItem(0, true) }
+                /*'Runnable' action that will execute.
+                Each runnable will jump to a specific page of our view pager*/
+        )
+
+        val next7Days = NavigationDrawerItem(
+                getString(R.string.next_seven_days),
+                Runnable { pager.setCurrentItem(1, true) }
+        )
+
+        val todos = NavigationDrawerItem(
+                getString(R.string.todos),
+                Runnable { pager.setCurrentItem(2, true) }
+        )
+
+        val notes = NavigationDrawerItem(
+                getString(R.string.notes),
+                Runnable { pager.setCurrentItem(3, true) }
+        )
+        // assigned a title to the buttons
+        menuItems.add(today)
+        menuItems.add(next7Days)
+        menuItems.add(todos)
+        menuItems.add(notes)
+
+        val navigationDrawerAdapter = NavigationDrawerAdapter(this, menuItems)
+        left_drawer.adapter = navigationDrawerAdapter
     }
+
     /*
     - defining adapter class for the pager
     - we must extend 'FragmentStatePagerAdapter' class
@@ -37,10 +75,22 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.drawing_menu -> {drawer_layout.openDrawer(GravityCompat.START) // changed from **Log.v(tag, "Main menu.")**
+                return true
+            }
+            R.id.options_menu -> {Log.v(tag, "Options menu")
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
 
 }
 
 /*
+============================================== COMMENTS ====================================================
 
 // FrameLayout will be our fragment container. Below, shows the new fragment in 'fragment_containerFrameLayout'
 override fun onCreate(savedInstanceState: Bundle?) {

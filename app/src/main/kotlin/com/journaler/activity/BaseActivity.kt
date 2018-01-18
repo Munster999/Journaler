@@ -3,11 +3,15 @@ package com.journaler.activity
 
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.Menu
+import com.journaler.R
 import kotlinx.android.synthetic.main.activity_header.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 
-abstract class BaseActivity: FragmentActivity() {
+abstract class BaseActivity: AppCompatActivity() {
 
     protected abstract val tag : String
     protected abstract fun getLayout() : Int
@@ -16,8 +20,14 @@ abstract class BaseActivity: FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayout())
-        activity_title.setText(getActivityTitle())
+        //activity_title.setText(getActivityTitle()) - initialising the activity 'title'
+        setSupportActionBar(toolbar) // this assigns an actionbar
         Log.v(tag, "[ ON CREATE ]")
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean { // assigns a menu to the app bar
+        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
