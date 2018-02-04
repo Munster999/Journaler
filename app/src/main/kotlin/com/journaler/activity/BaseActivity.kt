@@ -1,6 +1,7 @@
 // BaseActivity.kt
 package com.journaler.activity
 
+import android.Manifest
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
@@ -15,11 +16,11 @@ import android.widget.EditText
 import android.widget.TextView
 import com.journaler.R
 import com.journaler.extension.getAnimation
-import kotlinx.android.synthetic.main.activity_header.*
+import com.journaler.permission.PermissionCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-abstract class BaseActivity: AppCompatActivity() {
+abstract class BaseActivity: PermissionCompatActivity() {
 
     companion object {
 
@@ -84,6 +85,10 @@ abstract class BaseActivity: AppCompatActivity() {
         //activity_title.setText(getActivityTitle()) - initialising the activity 'title'
         setSupportActionBar(toolbar) // this assigns an actionbar
         Log.v(tag, "[ ON CREATE ]")
+        requestPermissions(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+        )
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean { // assigns a menu to the app bar

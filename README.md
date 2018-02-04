@@ -116,11 +116,11 @@ FAB button and it opens a popup menu which sends you to either the 'Todo' or 'No
 - Start to add in animations
 - Create opening animations '**fade_in.xml**'/'**fade_out.xml**'/'**bottom_to_top.xml**'/'**top_to_bottom.xml**'
  '**hide_to_top.xml**'/'**hide_to_bottom.xml**' within the res/anim folder 
-- Update '**activity_main**' add the background for Toolbar parent view
+- Update '**activity_main.xml**' add the background for Toolbar parent view
 - Update '**activity_note.xml**' & '**activity_todo.xml**', nest the toolbar in one 
 more parent so the final color is the same as the color for the title field below 
 the toolbar.
-- Update '**BaseActivity**' to apply our animations by applying the 
+- Update '**BaseActivity.kt**' to apply our animations by applying the 
  'overridePendingTransition' method (takes 'enter' and 'exit' animations as params).
  Also update the 'onResume' & 'onPause' methods as well 
 - Create '**animations.kt**' in the com.journaler\extension folder and its function 
@@ -128,7 +128,15 @@ the toolbar.
 - Add in '**add.png**' to res\drawable
 - Update '**fragment_items.xml**' to add in the plus sign 
 
-
+   '***Chapter 6***'
+1) ====== Permissions form the Android Manifest =====================
+2) ====== Requesting Permissions ====================================
+3) ====== Permission Handling the Kotlin Way ========================
+- Update '**AndroidManifest.xml**' with the permissions we need for our app
+- Create a package called 'permission' (within com.journaler)
+- Create TWO files here '**PermissionCompatActivity.kt**' & '**PermissionRequestCallback.kt**'
+- Update each file with its relevant code
+- Update '**BaseActivity.kt**' with a requestPermission() call
  
 
 
