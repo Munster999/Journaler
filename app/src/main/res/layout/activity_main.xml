@@ -9,6 +9,7 @@
     <!--<include layout="@layout/activity_header" />
      The above includes the 'header activity layout' (i.e. activity_header.xml) in this layout No longer required due to the ActionBar-->
 <LinearLayout
+    android:background="@android:color/darker_gray"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">

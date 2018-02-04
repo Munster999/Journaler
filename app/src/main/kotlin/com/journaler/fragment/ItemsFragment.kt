@@ -1,5 +1,7 @@
 package com.journaler.fragment
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
@@ -10,6 +12,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.BounceInterpolator
 import com.journaler.R
 import com.journaler.activity.NoteActivity
 import com.journaler.activity.TodoActivity
@@ -32,12 +36,15 @@ class ItemsFragment : BaseFragment() {
         val view = inflater?.inflate(getLayout(), container, false)
         val btn = view?.findViewById<FloatingActionButton>(R.id.new_item) // Accessed the FAB and assigned a 'ClickListener'
             btn?.setOnClickListener {
+                animate(btn)
                 val items = arrayOf(
                     getString(R.string.todos),
                     getString(R.string.notes)
                 ) // On 'clicking' we create a dialog with TWO options, each will trigger a proper method for activity opening.
                 val builder = AlertDialog.Builder(this@ItemsFragment.context)
                         .setTitle(R.string.choose_a_type)
+                        .setCancelable(true)
+                        .setOnCancelListener { animate(btn, false) }
                         .setItems(items, { _, which -> when (which) {
                                             0 -> { openCreateTodo() } // <--
                                             1 -> { openCreateNote() } // <--
@@ -92,6 +99,49 @@ class ItemsFragment : BaseFragment() {
         intent.putExtras(data) // changed from "intent.putExtra(MODE.EXTRAS_KEY, MODE.CREATE.mode)" (values reqd to start an intent)
         startActivityForResult(intent, TODO_REQUEST)
     }// creates an intent to open the 'Todo' sub-activity screen
+
+    /*private fun animate(btn: FloatingActionButton, expand: Boolean = true) {
+        btn.animate()
+                .setInterpolator(BounceInterpolator())
+                .scaleX(if(expand) { 1.5f } else { 1.0f })
+                .scaleY(if(expand) { 1.5f } else { 1.0f })
+                .setDuration(2000)
+                .start()
+    }
+
+    This is the first animation from the code
+    This method will animate scaling for the button with bounce interpolation.
+    If the expand param is 'true' we will scale up otherwise scale down */
+
+    private fun animate(btn: FloatingActionButton, expand: Boolean = true) {
+        val animation1 = ObjectAnimator.ofFloat(btn, "scaleX", if (expand) {
+            1.5f
+        } else {
+            1.0f
+        })
+        animation1.duration = 2000
+        animation1.interpolator = BounceInterpolator()
+
+        val animation2 = ObjectAnimator.ofFloat(btn, "scaleY", if (expand) {
+            1.5f
+        } else {
+            1.0f
+        })
+        animation2.duration = 2000
+        animation2.interpolator = BounceInterpolator()
+
+        val animation3 = ObjectAnimator.ofFloat(btn, "alpha", if (expand) {
+            0.3f
+        } else {
+            1.0f
+        })
+        animation3.duration = 500
+        animation3.interpolator = AccelerateInterpolator()
+
+        val set = AnimatorSet()
+        set.play(animation1).with(animation2).before(animation3)
+        set.start()
+    }
 }
 
 /*
@@ -101,6 +151,10 @@ NOTE: INTENT - In Android, INTENT represents our 'intention' to do something
     Also, some additional values (MODE.EXTRAS_KEY, MODE.CREATE.mode)
 - To get a result of the execution, we override the 'onActivityResult()' method and replace it with 'startActivityForResult()' method
 - We checked to see which activity finished and whether it was successful or not
+- NOTE: The [ AnimatorSet() ] class gives us the ability to create complex animations.
+  In this case, we defined animations for scaling along the x-axis and for scaling along the y-axis
+  This TWO animations will be animated at the same time giving us the effect of scaling in both directions.
+  After we scale view we will reduce (or increase) views capacity.
 
 
 

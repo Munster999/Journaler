@@ -88,7 +88,52 @@ FAB button and it opens a popup menu which sends you to either the 'Todo' or 'No
 
 
    '***Chapter 5***'
+1) ====== Themes and Styles in Android ==============================
+2) ====== Working with Assets =======================================
+3) ====== Custom Fonts & Coloring ===================================
+4) ====== Animation & animation sets ================================
+- Update '**styles.xml**
+- Update '**colors.xml**' 
+- Update '**AndroidManifest.xml**'  
+- Update '**fragment_items.xml**' (RUN) (Branded application in orange)
+- Update '**colors.xml**' ()with a new color palette)
+- Update '**styles.xml**'   
+- Create selector '**selector_button_green.xml**' in the res\drawable folder
+- Set buttons style within '**activity_todo.xml**' (RUN) 
+- Add styles for input fields and navigation drawers to your '**styles.xml**'
+- Create selector '**selector_button_grey.xml**' in the res\drawable folder (RUN)
+- Extend '**BaseActivity**' to handle fonts (pg 144)
+- Create '**tags.xml**' within the res\values folder for setting tags
+- Update '**styles.xml**' with new style (for simple_button) (RUN)
+- Update '**TodoActivity**' for a new button style
+- Update '**dimens.xml**' to define the radius for a button with rounded corners
+- Update '**colors.xml**' with second color for gradients
+- Update '**styles.xml**' with the additional styles for green buttons
+- Create '**rect_rounded_green.xml**' rectangular rounded drawable (in drawable folder)
+- Create '**rect_rounded_green_dark.xml**' rectangular rounded drawable (in drawable folder)
+- Create '**rect_rounded_grey_disabled.xml**' rectangular rounded drawable (in drawable folder)
+- Update '**selector_button_green**' with the drawable corner radius values. (RUN)
+- Start to add in animations
+- Create opening animations '**fade_in.xml**'/'**fade_out.xml**'/'**bottom_to_top.xml**'/'**top_to_bottom.xml**'
+ '**hide_to_top.xml**'/'**hide_to_bottom.xml**' within the res/anim folder 
+- Update '**activity_main**' add the background for Toolbar parent view
+- Update '**activity_note.xml**' & '**activity_todo.xml**', nest the toolbar in one 
+more parent so the final color is the same as the color for the title field below 
+the toolbar.
+- Update '**BaseActivity**' to apply our animations by applying the 
+ 'overridePendingTransition' method (takes 'enter' and 'exit' animations as params).
+ Also update the 'onResume' & 'onPause' methods as well 
+- Create '**animations.kt**' in the com.journaler\extension folder and its function 
+- Update '**itemsFragment.kt**' using view attributes and animation sets.  
+- Add in '**add.png**' to res\drawable
+- Update '**fragment_items.xml**' to add in the plus sign 
 
+
+ 
+
+
+    
+ 
 
  
 
