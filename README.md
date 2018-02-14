@@ -165,6 +165,16 @@ progress = do not have one, result = boolean (success or not))
 - Assign 'textWatcher' to 'EditText' views in the onCreate() method
 - Defined (most important method) 'updateNote()'
 
+   '***Chapter 8 - Android Preferences***'
+1) ====== What are Preferences and how can you use them =============
+2) ====== Defining your own Preferences manager =====================
+- Create the following files within the 'com.journaler\preferences' directory
+    - PreferencesConfiguration
+    - PreferencesProvider
+    - PreferencesProviderAbstract
+
+
+
 
 
     

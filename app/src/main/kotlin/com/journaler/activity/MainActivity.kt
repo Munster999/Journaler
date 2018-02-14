@@ -22,6 +22,8 @@ class MainActivity : BaseActivity() {
     override fun getLayout() = R.layout.activity_main
     override fun getActivityTitle() = R.string.app_name // Getting the activity title value (i.e. Int)
 
+    private val keyPagePosition = "keyPagePosition"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pager.adapter = ViewPagerAdapter(supportFragmentManager)
