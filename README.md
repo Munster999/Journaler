@@ -24,7 +24,7 @@
 19) Using the gradle build tool and its commands (clean, assemble, assembleDebug, assembleCompletedDebug)
 20) Debug your application - following breakpoints - Attaching the debugger
 
-'***Chapter 3***' 
+'***Chapter 3 - Screens***' 
 1) Download and install the 'Pencil' app (for GUI layouts & screens)
 2) Add in 'implementation 'com.android.support:appcompat-v7:26.1.0'
 3) Moving the tag field from 'MainActivity' to 'BaseActivity'
@@ -51,7 +51,7 @@
 24) Replace the 'FrameLayout' with the 'ViewPager' view within '**MAinActivity.kt**' class (RUN)
 
 
-   '***Chapter 4***'
+   '***Chapter 4 - Connecting Screen Flow***'
 1) ====== Creating and application bar ==============================
 2) ====== Using drawer navigation ===================================
 3) ====== Android Intents ===========================================
@@ -87,7 +87,7 @@ FAB button and it opens a popup menu which sends you to either the 'Todo' or 'No
 - The data is now going from point to point 
 
 
-   '***Chapter 5***'
+   '***Chapter 5 - Look & Feel***'
 1) ====== Themes and Styles in Android ==============================
 2) ====== Working with Assets =======================================
 3) ====== Custom Fonts & Coloring ===================================
@@ -128,7 +128,7 @@ the toolbar.
 - Add in '**add.png**' to res\drawable
 - Update '**fragment_items.xml**' to add in the plus sign 
 
-   '***Chapter 6***'
+   '***Chapter 6 - Permissions***'
 1) ====== Permissions form the Android Manifest =====================
 2) ====== Requesting Permissions ====================================
 3) ====== Permission Handling the Kotlin Way ========================
@@ -138,6 +138,33 @@ the toolbar.
 - Update each file with its relevant code
 - Update '**BaseActivity.kt**' with a requestPermission() call
  
+   '***Chapter 7 - Working With Databases***'
+1) ====== Introduction To SQLite ====================================
+2) ====== Describing Database =======================================
+3) ====== CRUD Operations ===========================================
+- Create a 'database' package
+- Inside the 'model' package create Entry, Note & Todo classes 
+    (Note, Todo will extend entry, which extends the DbModel class)
+- Now we describe our DB by defining ada DB helper class responsible for
+  DB initialisation.
+- Populate the Entry, Note & Todo classes accordingly.
+- We added two fields:
+    1 - this contains the current 'Note' instance we are editing 
+    2 - the other holds info about the currents users location
+- Defined a 'TextWatcher' (this is a listener we will assign our EditText views) 
+instance, on each change the proper update method will be triggered.
+- That method wil create a new 'Note' class and persist it into the database if it exists or not.
+- Defined our 'LocationListener' to put received location into the 'location' field 
+and to then un subscribe itself. 
+- We then get the current value for a 'Note' title and its main content and create a 
+new 'Note' instance
+- We start to use AsyncTasks (due to DB operations) 
+- 'AsyncTask' class uses 'input', 'progress' & 'result type' params. (input = Note, 
+progress = do not have one, result = boolean (success or not))
+- NOTE: Main work is done by 'doInBackground' while result is handled in 'onPostExecute'
+- Assign 'textWatcher' to 'EditText' views in the onCreate() method
+- Defined (most important method) 'updateNote()'
+
 
 
     
