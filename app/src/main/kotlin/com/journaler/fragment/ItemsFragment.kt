@@ -58,7 +58,7 @@ class ItemsFragment : BaseFragment() {
         return view
     }
 
-    override fun onResume() {
+    /*override fun onResume() {
         super.onResume()
         val items = view?.findViewById<ListView>(R.id.items)
         items?.let {
@@ -67,6 +67,14 @@ class ItemsFragment : BaseFragment() {
                     items.setBackgroundColor(R.color.grey_text_middle)
                 }
             }, 3000)
+        }
+    }*/
+
+    override fun onResume() {
+        super.onResume()
+        val btn = view?.findViewById<FloatingActionButton>(R.id.new_item)
+        btn?.let {
+            animate(btn, false)
         }
     }
 

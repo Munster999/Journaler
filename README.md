@@ -179,7 +179,11 @@ progress = do not have one, result = boolean (success or not))
 2) ====== Android Looper ============================================
 2) ====== Delayed Execution =========================================
 
-
+   '***Chapter 10 - Android Services***'
+1) ====== Service Categorisation ====================================
+2) ====== Basics of Android Services ================================
+2) ====== Defining the Main Application Service  ====================
+2) ====== Defining the Intent Service ===============================
 
     
  

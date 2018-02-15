@@ -21,10 +21,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <provider
-            android:exported="true"
-            android:name="com.journaler.provider.JournalerProvider"
-            android:authorities="com.journaler.provider" />
+        <service
+            android:name=".service.MainService"
+            android:exported="false" /> <!-- Means the service will run in the same process as our application (true = the opposite) -->
+
+        <service
+            android:name=".service.DatabaseService"
+            android:exported="false" />
 
         <activity
             android:name=".activity.MainActivity"

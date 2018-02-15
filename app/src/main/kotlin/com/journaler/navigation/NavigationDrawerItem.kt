@@ -11,10 +11,16 @@ import com.journaler.R
 import com.journaler.R.id.items
 
 
-data class NavigationDrawerItem ( val title: String, val onClick: Runnable )
+data class NavigationDrawerItem ( val title: String,
+                                  val onClick: Runnable,
+                                  var enabled: Boolean = true)
+// the 'enabled' param allows us to 'disable' some of our application drawers items (if needed)
+
 
 class NavigationDrawerAdapter (val ctx: Context,
                                val items: List<NavigationDrawerItem> ) : BaseAdapter() {
+
+    private val tag = "Nav. drw. adptr."
 
     override fun getView(position: Int, v: View?, group: ViewGroup?): View {
         val inflater = LayoutInflater.from(ctx)
