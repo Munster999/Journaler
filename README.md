@@ -185,6 +185,12 @@ progress = do not have one, result = boolean (success or not))
 2) ====== Defining the Main Application Service  ====================
 2) ====== Defining the Intent Service ===============================
 
+   '***Chapter 11 - Messaging***'
+1) ====== Android Broadcasts ========================================
+2) ====== Listening for Broadcasts ==================================
+2) ====== Creating Broadcasts =======================================
+2) ====== Listening for Network Events ==============================
+
     
  
 
