@@ -10,13 +10,13 @@ class TaskExecutor private constructor(
         maximumPoolSize: Int,
         workQueue: BlockingQueue<Runnable>?
 
-) : ThreadPoolExecutor(
-        corePoolSize,
-        maximumPoolSize,
-        0L,
-        TimeUnit.MILLISECONDS,
-        workQueue
-) {
+    ) : ThreadPoolExecutor(         // extending the 'ThreadPoolExecutor' class
+            corePoolSize,
+            maximumPoolSize,
+            0L,
+            TimeUnit.MILLISECONDS,
+            workQueue
+    ) {
 
     companion object {
         fun getInstance(capacity: Int): TaskExecutor {

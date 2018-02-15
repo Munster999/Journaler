@@ -5,8 +5,8 @@ import android.animation.ObjectAnimator
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.FloatingActionButton
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.BounceInterpolator
+import android.widget.ListView
 import com.journaler.R
 import com.journaler.activity.NoteActivity
 import com.journaler.activity.TodoActivity
@@ -55,6 +56,18 @@ class ItemsFragment : BaseFragment() {
                 builder.show()
             }
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val items = view?.findViewById<ListView>(R.id.items)
+        items?.let {
+            Handler().postDelayed({ // Used for 'delayed modification'
+                if (!activity.isFinishing) {
+                    items.setBackgroundColor(R.color.grey_text_middle)
+                }
+            }, 3000)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

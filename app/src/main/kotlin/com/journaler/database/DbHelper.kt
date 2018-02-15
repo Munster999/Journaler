@@ -6,7 +6,7 @@ import android.util.Log
 import com.journaler.Journaler
 
 
-class DbHelper(dbName: String, val version: Int) : SQLiteOpenHelper(Journaler.ctx, dbName, null, version) {
+class DbHelper(val dbName: String, val version: Int) : SQLiteOpenHelper(Journaler.ctx, dbName, null, version) {
 
     companion object {
         val ID: String = "_id"
@@ -14,9 +14,10 @@ class DbHelper(dbName: String, val version: Int) : SQLiteOpenHelper(Journaler.ct
         val TABLE_NOTES = "notes"
         val COLUMN_TITLE: String = "title"
         val COLUMN_MESSAGE: String = "message"
-        val COLUMN_LOCATION: String = "location"
         val COLUMN_SCHEDULED: String = "scheduled"
-    } // Contains definitions for table and column names
+        val COLUMN_LOCATION_LATITUDE: String = "latitude"
+        val COLUMN_LOCATION_LONGITUDE: String = "longitude"
+    }
 
     private val tag = "DbHelper"
 
@@ -26,7 +27,8 @@ class DbHelper(dbName: String, val version: Int) : SQLiteOpenHelper(Journaler.ct
                                         $ID integer PRIMARY KEY autoincrement,
                                         $COLUMN_TITLE text,
                                         $COLUMN_MESSAGE text,
-                                        $COLUMN_LOCATION text
+                                        $COLUMN_LOCATION_LATITUDE real,
+                                        $COLUMN_LOCATION_LONGITUDE real
                                     )
                                     """
 
@@ -37,7 +39,8 @@ class DbHelper(dbName: String, val version: Int) : SQLiteOpenHelper(Journaler.ct
                                         $COLUMN_TITLE text,
                                         $COLUMN_MESSAGE text,
                                         $COLUMN_SCHEDULED integer,
-                                        $COLUMN_LOCATION text
+                                        $COLUMN_LOCATION_LATITUDE real,
+                                        $COLUMN_LOCATION_LONGITUDE real
                                     )
                                     """
 

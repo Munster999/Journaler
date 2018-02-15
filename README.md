@@ -173,7 +173,11 @@ progress = do not have one, result = boolean (success or not))
     - PreferencesProvider
     - PreferencesProviderAbstract
 
-
+   '***Chapter 9 - Concurrency in Android***'
+1) ====== Handlers & Threads ========================================
+2) ====== AsyncTask =================================================
+2) ====== Android Looper ============================================
+2) ====== Delayed Execution =========================================
 
 
 
